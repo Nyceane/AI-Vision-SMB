@@ -1,1 +1,1 @@
-# AI-Vision-SMB
+# AI-Vision for SMB
