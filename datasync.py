@@ -9,14 +9,19 @@ def main():
     bottlestring = ""
     while True:
         file = open('people.txt', 'r')
-        if peoplestring != file.read().replace('\n',''):        
-            # Sending in information for people that it's detecting
-            channel.send(datastring.encode())
-        file.close()
-        file = open('bottle.txt', 'r')
-        if bottlestring != file.read().replace('\n',''):        
-            channel.send(datastring.encode())
-        file.close()
+        temp = str(file.read().replace('\n',''))
+        if peoplestring != temp and temp != '':
+            peoplestring = temp
+            channel.send(peoplestring.encode())
+            print(peoplestring)
+        file.close()       
+        file = open('bottles.txt', 'r')
+        temp = str(file.read().replace('\n',''))
+        if bottlestring != temp and temp != '':
+            bottlestring = temp
+            channel.send(bottlestring.encode())
+            print(bottlestring)
+        file.close()       
         time.sleep(1)
 
 if __name__ == "__main__":
