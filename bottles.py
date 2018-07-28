@@ -21,7 +21,7 @@ from utils import visualize_output
 from utils import deserialize_output
 
 # Detection threshold: Minimum confidance to tag as valid detection
-CONFIDANCE_THRESHOLD = 0.60 # 60% confidant
+CONFIDANCE_THRESHOLD = 0.50 # 60% confidant
 
 # Variable to store commandline arguments
 ARGS                 = None
@@ -41,7 +41,7 @@ def open_ncs_device():
         quit()
 
     # Get a handle to the first enumerated device and open it
-    device = mvnc.Device( devices[0] )
+    device = mvnc.Device( devices[1] )
     device.OpenDevice()
 
     return device
@@ -98,7 +98,7 @@ def infer_image( graph, img, frame ):
 
     global lastcount
     count = 0
-    selected = 'bottle"
+    selected = 'bottle'
 
     for i in range( 0, output_dict['num_detections'] ):
         print( "%3.1f%%\t" % output_dict['detection_scores_' + str(i)] 
@@ -178,7 +178,7 @@ if __name__ == '__main__':
                          help="Absolute path to the neural network graph file." )
 
     parser.add_argument( '-v', '--video', type=int,
-                         default=0,
+                         default=2,
                          help="Index of your computer's V4L2 video device. \
                                ex. 0 for /dev/video0" )
 

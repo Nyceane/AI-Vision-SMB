@@ -54,15 +54,6 @@
           <i class="ion ion-ios-pulse-strong" aria-hidden="true"></i>
         </a>
         <ul class="nav navbar-nav navbar-right">
-          <li class="nav-item dropdown active">
-            <a href="http://paullaros.nl/spark-2-0-1/docs/#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Camera 1</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" id="btnPeople">People</a></li>
-              <li><a class="dropdown-item" id="btnBottle">Milk</a></li>
-              <li><a class="dropdown-item" id="btnCars">Cars</a></li>
-            </ul>
-          </li>
-
           <li class="nav-item dropdown">
             <a href="http://paullaros.nl/spark-2-0-1/docs/#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Messages</a>
             <div class="dropdown-menu dropdown-md">
@@ -657,30 +648,10 @@
     Spark.init();
     Page.init();
 
-    $( "#btnPeople" ).click(function() {
-      $.ajax({
-        url:"http://0.0.0.0:8888/setCamera?id=person",
-        success:null
-      });
-    });
-
-    $( "#btnBottle" ).click(function() {
-      $.ajax({
-        url:"http://0.0.0.0:8888/setCamera?id=bottle",
-        success:null
-      });    });
-
-    $( "#btnCars" ).click(function() {
-      $.ajax({
-        url:"http://0.0.0.0:8888/setCamera?id=car",
-        success:null
-      });    
-    });
-
     var lastcount=0;
 
-    var bottleurl = "https://api-project-100203780418.appspot.com/bottle";
-    var peopleurl = "https://api-project-100203780418.appspot.com/people"
+    var bottleurl = "https://{yourserver}.azurewebsites.net/api/aivision?item=bottle&code={your function code}";
+    var peopleurl = "https://{yourserver}.azurewebsites.net/api/aivision?item=person&code={your function code}"
 
     function bottlessuccess(data){
       
